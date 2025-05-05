@@ -1,26 +1,32 @@
 package com.example.pawsfur;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AboutUs extends AppCompatActivity {
 
-    Button backButton;
+    TextView aboutUsText;
+    Button contactUsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aboutus);
 
-        backButton = findViewById(R.id.backButton);
+        // Initialize views
+        aboutUsText = findViewById(R.id.aboutUsDescription);
+        contactUsButton = findViewById(R.id.contactUsButton);
 
-        backButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AboutUs.this, Dashboard.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);
-            finish();
+        // Set information about the app or business
+        aboutUsText.setText("We are a pet care service offering grooming, training, and health services for pets.");
+
+        // Contact Us button click listener
+        contactUsButton.setOnClickListener(v -> {
+            // You can implement contact functionality here, e.g., send an email or open a contact form
+            Toast.makeText(AboutUs.this, "Contact Us clicked", Toast.LENGTH_SHORT).show();
         });
     }
 }

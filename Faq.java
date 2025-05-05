@@ -1,26 +1,26 @@
 package com.example.pawsfur;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.TextView;
+import android.widget.ScrollView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Faq extends AppCompatActivity {
 
-    Button backButton;
+    TextView faqQuestion1, faqAnswer1, faqQuestion2, faqAnswer2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.faq);
 
-        backButton = findViewById(R.id.backButton);
+        // Initialize views
+        faqQuestion1 = findViewById(R.id.faqQuestion1);
+        faqAnswer1 = findViewById(R.id.faqAnswer1);
 
-        backButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Faq.this, Dashboard.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);
-            finish();
-        });
+        // Sample FAQ content
+        faqQuestion1.setText("Q1: How do I book a service?");
+        faqAnswer1.setText("A1: You can book a service by visiting the booking page.");
+
     }
 }
